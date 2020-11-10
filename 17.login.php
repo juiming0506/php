@@ -30,6 +30,10 @@ if(isset($_POST['account']) and isset($_POST['password'])){
             <div class="card">
                 <div class="card-body">
                     <h5 class="card-title">Card title</h5>
+                    <?php if(isset($_SESSION['user'])): ?>
+                    <h6><?= $_SESSION['user']['nickname'] ?> 您好</h6>
+                    <p><a href="18.logout.php">登出</a></p>
+                    <?php else: ?>
                     <form action="" method="post">
                         <div class="form-group">
                             <label for="account">account address</label>
@@ -52,6 +56,7 @@ if(isset($_POST['account']) and isset($_POST['password'])){
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
+                    <?php endif;  ?>
                 </div>
            </div>
        </div>
@@ -60,4 +65,3 @@ if(isset($_POST['account']) and isset($_POST['password'])){
 
 <?php include __DIR__. '/parts/scripts.php'; ?>
 <?php include __DIR__. '/parts/html-foot.php'; ?>
-
